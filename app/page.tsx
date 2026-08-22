@@ -46,7 +46,7 @@ const principles = [
 ];
 
 function LogoImage({ className = "" }: { className?: string }) {
-  return <img className={className} src="/brand/rds-mark.svg" alt="RDS — Rahul Development Studio" width={512} height={512} decoding="async" />;
+  return <img className={className} src="/brand/logo.png" alt="RDS — Rahul Development Studio" width={512} height={512} decoding="async" />;
 }
 
 export default function Home() {
