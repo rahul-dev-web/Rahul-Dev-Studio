@@ -55,7 +55,7 @@ function LogoImage({ className = "" }: { className?: string }) {
       decoding="async"
       onError={(event) => {
         event.currentTarget.onerror = null;
-        event.currentTarget.src = "/brand/rds-mark.svg";
+        event.currentTarget.src = "/brand/rds-logo-fallback.svg";
       }}
     />
   );
