@@ -3,6 +3,7 @@ import "./globals.css";
 import "./mobile.css";
 import "./premium.css";
 import "./mobile-polish.css";
+import "./mobile-final.css";
 
 const SITE_URL = "https://rahul-dev-studio.vercel.app";
 const LOGO_URL = `${SITE_URL}/brand/logo.png`;
@@ -17,10 +18,7 @@ export const metadata: Metadata = {
   applicationName: "Rahul Development Studio",
   keywords: ["Rahul Development Studio", "web development", "web applications", "mobile apps", "custom software", "business websites"],
   alternates: { canonical: "/" },
-  icons: {
-    icon: "/brand/logo.png",
-    apple: "/brand/logo.png",
-  },
+  icons: { icon: "/brand/logo.png", apple: "/brand/logo.png" },
   openGraph: {
     title: "Rahul Development Studio",
     description: "Websites, applications and custom digital solutions built for real requirements.",
