@@ -58,7 +58,7 @@ export default function Home() {
       <header className="nav">
         <div className="container nav-inner">
           <a className="brand" href="#top" onClick={close} aria-label="Rahul Development Studio home">
-            <span className="brand-logo"><img src="/brand/rds-mark.svg" alt="RDS" width={512} height={512} /></span>
+            <span className="brand-logo"><img src="/brand/logo.png" alt="RDS" width={512} height={512} /></span>
             <span className="brand-copy"><strong>RAHUL DEVELOPMENT STUDIO</strong><span>Web • App • Solutions</span></span>
           </a>
           <nav className="nav-links" aria-label="Primary navigation"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a></nav>
