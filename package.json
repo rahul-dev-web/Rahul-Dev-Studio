@@ -1,6 +1,6 @@
 {
   "name": "rahul-development-studio",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -24,6 +24,6 @@
     "eslint-config-next": "15.5.0",
     "postcss": "8.4.49",
     "tailwindcss": "4.1.12",
-    "typescript": "5.7.0"
+    "typescript": "5.7.3"
   }
 }
