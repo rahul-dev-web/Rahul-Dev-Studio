@@ -1,17 +1,197 @@
-/* Final mobile-first pass: prioritise copy, CTA and readability over decorative density. */
-@media (max-width: 640px) {
-  .nav-inner{min-height:64px;padding:9px 14px}
-  .brand{min-width:0;gap:9px}.brand-logo{width:38px;height:38px;flex:0 0 38px}.brand-logo img{width:100%;height:100%;display:block;object-fit:contain;object-position:center}.brand-copy{min-width:0}.brand-copy strong{display:block;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;letter-spacing:.12em}.brand-copy span{display:none}
-  .nav-links{display:none}.nav-actions{gap:8px}.nav-cta{display:none}.mobile-menu{width:44px;height:44px;display:grid;place-items:center;border-radius:12px}
-  .mobile-nav{left:12px;right:12px;top:73px;bottom:auto;border-radius:14px;max-height:calc(100svh - 88px);overflow:auto}
-  .hero{padding-top:0}.hero-inner{display:flex;flex-direction:column;gap:28px;padding:42px 16px 54px}.hero-copy{order:1}.hero-visual{order:2;width:100%;height:250px;min-height:250px}
-  .visual-label,.visual-brand-name{display:none}.logo-frame{width:min(230px,72vw);height:min(230px,72vw);border-radius:22px;display:grid;place-items:center}.logo-frame img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;padding:6%;background:#030507}
-  .orbit{transform:scale(.76);opacity:.7}.orbit-glow{opacity:.55}
-  .kicker{font-size:8px;letter-spacing:.18em}.hero-copy h1{font-size:clamp(52px,16vw,78px);line-height:.9;letter-spacing:-.065em;margin:16px 0 20px}.hero-lead{font-size:15px;line-height:1.6;max-width:34rem}.hero-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:22px}.hero-actions .button{width:100%;min-height:48px}.hero-meta{grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.hero-meta span{font-size:9px}
-  .section{padding:64px 16px}.section-head{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:26px}.section-head h2{font-size:34px;line-height:1.02}.section-intro{font-size:13px;line-height:1.65}.capabilities,.services,.process,.principle-list,.docs{grid-template-columns:1fr;gap:10px}
-  .capability,.service,.process-step,.principle,.doc{padding:18px;border-radius:14px}.service h3{font-size:22px}.service p,.capability p,.process-step p,.principle p,.doc p{font-size:12px;line-height:1.6}
-  .work-card{grid-template-columns:1fr;gap:0}.work-copy{padding:22px 18px}.work-copy h3{font-size:30px;line-height:1.02}.work-visual{min-height:240px;display:grid;place-items:center}.work-visual img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;padding:8%;background:#030507}.work-button{width:100%;margin-top:18px}
-  .cta{padding:64px 16px}.cta-inner{display:grid;grid-template-columns:1fr;gap:24px}.cta h2{font-size:38px;line-height:1}.cta-actions{display:grid;grid-template-columns:1fr;gap:9px}.cta-actions .button{width:100%;min-height:48px}
-  .footer-inner{grid-template-columns:1fr;gap:14px;padding:26px 16px 34px}.footer-links{display:flex;flex-wrap:wrap;gap:9px 14px}
+/* Final mobile-first pass: one PNG logo source + compact first-screen composition. */
+
+/* Single source of truth for every RDS logo image. Never crop the PNG. */
+.rds-logo-image,
+.brand-logo img,
+.logo-frame img,
+.work-visual img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-@media (min-width: 641px) {.mobile-final-only{display:none}}
+
+.brand-logo {
+  display: grid;
+  place-items: center;
+  overflow: visible !important;
+  background: #030507;
+  border: 1px solid rgba(226,234,247,.14);
+  box-shadow: 0 0 24px rgba(43,120,255,.08);
+}
+.logo-frame,
+.work-visual {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .nav-inner {
+    min-height: 62px;
+    height: 62px;
+    padding: 8px 14px;
+  }
+  .brand { min-width: 0; gap: 9px; }
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border-radius: 10px;
+    overflow: hidden !important;
+  }
+  .brand-copy { min-width: 0; }
+  .brand-copy strong {
+    display: block;
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 8px;
+    letter-spacing: .11em;
+  }
+  .brand-copy span { display: none; }
+  .nav-links { display: none; }
+  .nav-actions { gap: 8px; margin-left: auto; }
+  .nav-cta { display: none !important; }
+  .mobile-menu {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+  }
+  .mobile-nav {
+    left: 12px;
+    right: 12px;
+    top: 70px;
+    bottom: auto;
+    border-radius: 14px;
+    max-height: calc(100svh - 84px);
+    overflow: auto;
+  }
+
+  /* Keep the hero compact so the first screen shows the value proposition, CTAs and brand. */
+  .hero {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+  .hero-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+    padding: 28px 16px 38px !important;
+  }
+  .hero-copy { order: 1; width: 100%; max-width: none; }
+  .hero-visual {
+    order: 2;
+    width: 100%;
+    height: 210px !important;
+    min-height: 210px !important;
+    margin: 0;
+  }
+  .kicker {
+    margin-bottom: 10px !important;
+    font-size: 7px;
+    letter-spacing: .16em;
+  }
+  .hero-copy h1 {
+    font-size: clamp(48px, 14vw, 64px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.07em;
+    margin: 0 0 14px !important;
+  }
+  .hero-lead {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.58 !important;
+    max-width: 36rem;
+  }
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 18px !important;
+  }
+  .hero-actions .button {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 10px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .hero-meta {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px 14px !important;
+    margin-top: 14px !important;
+    padding-top: 12px !important;
+  }
+  .hero-meta span { font-size: 8px; }
+
+  .visual-label,
+  .visual-brand-name { display: none !important; }
+  .orbit { transform: scale(.62); opacity: .55; }
+  .orbit-glow { opacity: .45; transform: scale(.72); }
+  .logo-frame {
+    width: min(176px, 48vw) !important;
+    height: min(176px, 48vw) !important;
+    aspect-ratio: 1;
+    border-radius: 18px;
+    display: grid !important;
+    place-items: center;
+    transform: none !important;
+    background: radial-gradient(circle at 50% 40%, rgba(39,123,255,.12), #030507 68%);
+  }
+  .logo-frame img {
+    width: 88% !important;
+    height: 88% !important;
+  }
+
+  .section { padding: 64px 16px; }
+  .section-head { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 26px; }
+  .section-head h2 { font-size: 34px; line-height: 1.02; }
+  .section-intro { font-size: 13px; line-height: 1.65; }
+  .capabilities,.services,.process,.principle-list,.docs { grid-template-columns: 1fr; gap: 10px; }
+  .capability,.service,.process-step,.principle,.doc { padding: 18px; border-radius: 14px; }
+  .service h3 { font-size: 22px; }
+  .service p,.capability p,.process-step p,.principle p,.doc p { font-size: 12px; line-height: 1.6; }
+
+  .work-card { grid-template-columns: 1fr; gap: 0; }
+  .work-copy { padding: 22px 18px; }
+  .work-copy h3 { font-size: 30px; line-height: 1.02; }
+  .work-visual { min-height: 220px !important; height: 220px; display: grid; place-items: center; background: #030507; }
+  .work-visual img { width: 58% !important; height: 58% !important; opacity: 1 !important; }
+  .work-button { width: 100%; margin-top: 18px; }
+
+  .cta { padding: 64px 16px; }
+  .cta-inner { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .cta h2 { font-size: 38px; line-height: 1; }
+  .cta-actions { display: grid; grid-template-columns: 1fr; gap: 9px; }
+  .cta-actions .button { width: 100%; min-height: 48px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 14px; padding: 26px 16px 34px; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 9px 14px; }
+}
+
+@media (max-width: 380px) {
+  .hero-copy h1 { font-size: 48px !important; }
+  .hero-actions { grid-template-columns: 1fr !important; }
+  .hero-actions .button { min-height: 44px; }
+  .brand-copy strong { max-width: 155px; }
+}
+
+@media (min-width: 641px) {
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 11px;
+    overflow: hidden !important;
+  }
+  .logo-frame img { width: 88% !important; height: 88% !important; }
+  .work-visual img { width: 64% !important; height: 64% !important; }
+}
